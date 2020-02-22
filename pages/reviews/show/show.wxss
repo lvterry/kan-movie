@@ -55,7 +55,7 @@
   line-height: 45rpx;
   margin-top: 24rpx;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .icon-quote {
@@ -82,4 +82,19 @@
   font-size: 32rpx;
   line-height: 42rpx;
   color: #666;
+}
+
+.audio {
+  background: #C7D1D8;
+  padding: 12rpx 80rpx 12rpx 40rpx;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+
+.icon-play {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
 }

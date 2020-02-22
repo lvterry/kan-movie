@@ -9,7 +9,11 @@
     </view>
     <view class="content">
       <image class="icon-quote" src="/images/quote.png"></image>
-      <text>{{ review.content }}</text>
+      <text wx:if="{{ review.type == 'text' }}">{{ review.content }}</text>
+      <view wx:elif="{{ review.type == 'audio' }}" class="content audio">
+        <image class="icon-play" src="/images/play-circle-fill.png"></image>
+        <text>15s</text>
+      </view>
     </view>
   </view>
 

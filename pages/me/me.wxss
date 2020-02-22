@@ -1,0 +1,59 @@
+.page-title {
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #EF7E37;
+  margin: 60rpx 0;
+  text-align: center;
+}
+
+.movie {
+  background: white;
+  border: 1px solid #E1E9EE;
+  display: flex;
+  margin: 30rpx;
+}
+
+.poster {
+  width: 200rpx;
+  height: 295rpx;
+  flex-shrink: 0;
+  margin-right: 30rpx;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-right: 30rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  line-height: 50rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.review {
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+}
+
+.author-avatar {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+  border-radius: 25rpx;
+}
+
+.author-name {
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #666;
+}
+

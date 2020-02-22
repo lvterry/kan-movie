@@ -21,17 +21,18 @@ Page({
         name: '加书亚在路上'
       }
     },
-    preview: 0
+    preview: false
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    console.log(parseInt(options.preview))
-    this.setData({
-      preview: parseInt(options.preview)
-    })
+    if (options.preview) {
+      this.setData({
+        preview: true
+      })
+    }
   },
 
   /**

@@ -75,7 +75,7 @@ Page({
 
   submitButtonTapped: () => {
     wx.navigateTo({
-      url: '/pages/reviews/show/show?preview=1',
+      url: '/pages/reviews/show/show?preview=true',
     })
   }
 })

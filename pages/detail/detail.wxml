@@ -8,7 +8,7 @@
       <image class="icon" src="/images/eye.png"/>
       <text>查看影评</text>
     </view>
-    <view class="button add-review">
+    <view class="button add-review" bindtap="addReviewTapped">
       <image class="icon" src="/images/file-add.png"/>
       <text>添加影评</text>
     </view>

@@ -77,5 +77,21 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  addReviewTapped: () => {
+    wx.showActionSheet({
+      itemList: ['文字', '音频'],
+      success(res) {
+        if (res.tapIndex === 0) {
+          wx.navigateTo({
+            url: '/pages/reviews/new/new',
+          })
+        }
+      },
+      fail(res) {
+        console.log(res.errMsg)
+      }
+    })
   }
 })

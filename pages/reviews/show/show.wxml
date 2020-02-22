@@ -22,7 +22,7 @@
       <image class="icon" src="/images/star.png"/>
       <text>收藏影评</text>
     </view>
-    <view class="button add-review">
+    <view class="button add-review" bindtap="addReviewTapped">
       <image class="icon" src="/images/edit.png"/>
       <text>写影评</text>
     </view>

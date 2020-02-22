@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-poster {
+  width: 500rpx;
+  height: 740rpx;
+  display: block;
+  margin: 40rpx auto;
+}
+
+.movie-title {
+  color: #333333;
+  font-size: 48rpx;
+  line-height: 68rpx;
+}
+
+.review {
+  font-size: 32rpx;
+  line-height: 44rpx;
+  margin-top: 24rpx;
+  color: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  margin-right: 12rpx;
+}
+
+.toolbar {
+  position: absolute;
+  bottom: 0;
+  height: 120rpx;
+  width: 100%;
+  border-top: 1px solid #E1E9EE;
+  background: white;
+  display: flex;
+  align-self: flex-end;
+}
+
+.button {
+  width: 50%;
+  height: 120rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1296db;
+}
+
+.icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 12rpx;
+}

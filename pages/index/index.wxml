@@ -1,0 +1,25 @@
+<view class="container">
+
+  <view class="movie">
+    <image class="movie-poster" src="{{ movie.poster }}"></image>
+    <text class="movie-title">{{ movie.title }}</text>
+  </view>
+
+  <view class="review">
+    <image class="avatar" src="{{ review.author.avatar }}"/>
+    <text>{{ review.author.name }}</text>
+    <text>给你推荐了一部电影</text>
+  </view>
+
+  <view class="toolbar">
+    <navigator class="button" url="/pages/hot/hot">
+      <image class="icon" src="/images/like.png" width="30" height="30"/>
+      <text>热门</text>
+    </navigator>
+    <view class="button">
+      <image class="icon" src="/images/user.png"/>
+      <text>我的</text>
+    </view>
+  </view>
+
+</view>

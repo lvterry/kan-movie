@@ -1,0 +1,33 @@
+.movie {
+  background: white;
+  border: 1px solid #E1E9EE;
+  display: flex;
+  margin: 30rpx;
+}
+
+.movie image {
+  width: 200rpx;
+  height: 295rpx;
+  flex-shrink: 0;
+  margin-right: 24rpx;
+}
+
+.movie-info {
+  display: flex;
+  padding: 60rpx 0;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.title {
+  font-size: 36rpx;
+  line-height: 50rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.genre {
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #666;
+}

@@ -16,10 +16,10 @@
       <image class="icon" src="/images/like.png" width="30" height="30"/>
       <text>热门</text>
     </navigator>
-    <view class="button">
+    <navigator class="button" url="/pages/me/me">
       <image class="icon" src="/images/user.png"/>
       <text>我的</text>
-    </view>
+    </navigator>
   </view>
 
 </view>

@@ -12,5 +12,8 @@
       </view>
     </view>
   </view>
-
 </view>
+
+<navigator class="back-to-home" url="/pages/index/index" open-type="navigateBack">
+  回到首页
+</navigator>

@@ -57,3 +57,15 @@
   color: #666;
 }
 
+.back-to-home {
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  position: absolute;
+  background: white;
+  border-top: 1px solid #E1E9EE;
+  bottom: 0;
+  text-align: center;
+  color: #1296db;
+  font-size: 36rpx;
+}

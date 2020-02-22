@@ -67,4 +67,5 @@ textarea {
 
 .add-audio {
   width: 30%;
+  margin-top: 40rpx;
 }

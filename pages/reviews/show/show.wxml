@@ -18,7 +18,7 @@
   </view>
 
   <view wx:if="{{ preview }}" class="toolbar">
-    <view class="button">
+    <view class="button" bindtap="editButtonTapped">
       <image class="icon" src="/images/rollback.png"/>
       <text>重新编辑</text>
     </view>

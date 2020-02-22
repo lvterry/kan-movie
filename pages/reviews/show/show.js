@@ -91,11 +91,19 @@ Page({
           wx.navigateTo({
             url: '/pages/reviews/new/new',
           })
+        } else {
+          wx.navigateTo({
+            url: '/pages/reviews/new/new?audio=true',
+          })
         }
       },
       fail(res) {
         console.log(res.errMsg)
       }
     })
+  },
+
+  editButtonTapped: () => {
+    wx.navigateBack()
   }
 })

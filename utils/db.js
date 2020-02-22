@@ -9,6 +9,10 @@ module.exports = {
     return db.collection('movies').get()
   },
 
+  getMovie(id) {
+    return db.collection('movies').doc(id).get()
+  }
+
   // getProductDetail(id) {
   //   return wx.cloud.callFunction({
   //     name: 'productDetail',

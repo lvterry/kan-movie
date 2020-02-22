@@ -1,5 +1,5 @@
 <view class="container">
-  <image src="/images/{{ movie.poster }}" class="poster" />
+  <image src="{{ movie.poster }}" class="poster" />
   <view class="title">{{ movie.title }}</view>
   <view class="desc">{{ movie.desc }}</view>
 

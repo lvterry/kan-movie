@@ -1,37 +1,24 @@
-// pages/hot/hot.js
+// pages/detail/detail.js
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    movies: [
-      {
-        id: 1,
-        title: '复仇者联盟4:终局之战',
-        genre: '动作 / 科幻 / 冒险',
-        poster: 'poster.jpg'
-      },
-      {
-        id: 2,
-        title: '利刃出鞘',
-        genre: '剧情 / 喜剧 / 悬疑 / 犯罪',
-        poster: 'poster2.jpg'
-      },
-      {
-        id: 3,
-        title: '追随',
-        genre: '悬疑 / 惊悚 / 犯罪',
-        poster: 'poster3.jpg'
-      }
-    ]
+    movie: {
+      id: 3,
+      title: '追随',
+      genre: '悬疑 / 惊悚 / 犯罪',
+      poster: 'poster3.jpg',
+      desc: '比尔（杰里米•希尔伯德 Jeremy Theobald 饰）是个游手好闲的作家，借跟踪陌生人打发时间。这让他体验到形形色色的人生，很神秘，也很刺激。不过，有一次，比尔盯上了一个西服革履的家伙克布（艾利克斯•浩尔 Alex Haw 饰）。'
+    }
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    console.log(options)
   },
 
   /**
@@ -81,12 +68,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  movieTapped: (event) => {
-    let movieId = event.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '/pages/detail/detail?id=' + movieId
-    })
   }
 })

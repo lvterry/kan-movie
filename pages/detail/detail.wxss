@@ -1,0 +1,58 @@
+.container {
+  background: white;
+  border: 1px solid #E1E9EE;
+  border-radius: 8rpx;
+  margin: 160rpx 30rpx 30rpx;
+  padding: 260rpx 60rpx 60rpx 60rpx;
+  color: #333;
+  position: relative;
+}
+
+.poster {
+  width: 240rpx;
+  height: 353rpx;
+  border-radius: 8rpx; 
+  position: absolute;
+  top: -120rpx;
+  left: 225rpx;
+
+}
+
+.title {
+  font-size: 48rpx;
+  line-height: 67rpx;
+  font-weight: bold;
+  text-align: center;
+  margin: 24rpx 0;
+}
+
+.desc {
+  font-size: 32rpx;
+  line-height: 50rpx;
+  color: #666;
+}
+
+.toolbar {
+  margin-top: 160rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  background: white;
+  border: 1px solid #E1E9EE;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: #1296db;
+  display: flex;
+  align-items: center;
+  padding: 24rpx 48rpx;
+}
+
+.icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}

@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="movie" wx:for="{{ movies }}">
+  <view class="movie" wx:for="{{ movies }}" wx:key="id" bindtap="movieTapped" data-id="{{ item.id }}">
     <image class="poster" src="/images/{{ item.poster }}"/>
     <view class="movie-info">
       <view class="title">{{ item.title }}</view>

@@ -1,0 +1,16 @@
+<view class="container">
+  <image src="/images/{{ movie.poster }}" class="poster" />
+  <view class="title">{{ movie.title }}</view>
+  <view class="desc">{{ movie.desc }}</view>
+
+  <view class="toolbar">
+    <view class="button view-reviews">
+      <image class="icon" src="/images/eye.png"/>
+      <text>查看影评</text>
+    </view>
+    <view class="button add-review">
+      <image class="icon" src="/images/file-add.png"/>
+      <text>添加影评</text>
+    </view>
+  </view>
+</view>

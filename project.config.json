@@ -52,6 +52,13 @@
 					"id": -1,
 					"name": "hot",
 					"pathName": "pages/hot/hot",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/detail/detail",
+					"pathName": "pages/detail/detail",
 					"scene": null
 				}
 			]

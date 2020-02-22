@@ -8,6 +8,7 @@ Page({
     reviews: [
       {
         id: 1,
+        type: 'text',
         content: '我昨天看完以后在剧情上纠结了很长时间，有很多为什么...',
         author: {
           avatar: 'yi.jpg',
@@ -16,10 +17,20 @@ Page({
       },
       {
         id: 2,
+        type: 'text',
         content: '随着叙述的深入，一个年轻人孤单的生活展现在观众面前...',
         author: {
           avatar: 'jia.jpg',
           name: '加书亚在路上'
+        }
+      },
+      {
+        id: 3,
+        type: 'audio',
+        content: '随着叙述的深入，一个年轻人孤单的生活展现在观众面前...',
+        author: {
+          avatar: 'naptid.jpg',
+          name: 'naptid'
         }
       }
     ]

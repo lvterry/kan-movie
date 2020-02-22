@@ -4,7 +4,7 @@
   <view class="desc">{{ movie.desc }}</view>
 
   <view class="toolbar">
-    <view class="button view-reviews">
+    <view class="button view-reviews" bindtap="viewReviewsTapped">
       <image class="icon" src="/images/eye.png"/>
       <text>查看影评</text>
     </view>

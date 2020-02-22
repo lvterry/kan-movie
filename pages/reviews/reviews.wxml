@@ -1,0 +1,11 @@
+<view class="reviews">
+
+  <view class="review-item" wx:for="{{ reviews }}" wx:key="id">
+    <view class="author">
+      <image class="author-avatar" src="/images/{{ item.author.avatar }}"/>
+      <text class="author-name">{{ item.author.name }}</text>
+    </view>
+    <view class="content">{{ item.content }}</view>
+  </view>
+
+</view>

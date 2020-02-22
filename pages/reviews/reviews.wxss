@@ -1,0 +1,33 @@
+.reviews {
+  padding: 40rpx 0;
+}
+
+.review-item {
+  background: white;
+  padding: 24rpx 48rpx;
+  margin: 8rpx 0;
+}
+
+.content {
+  font-size: 32rpx;
+  line-height: 45rpx;
+  margin-top: 24rpx;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+}
+
+.author-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 24rpx;
+  border-radius: 40rpx;
+}
+
+.author-name {
+  font-size: 32rpx;
+  line-height: 42rpx;
+  color: #666;
+}

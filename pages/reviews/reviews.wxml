@@ -1,6 +1,6 @@
 <view class="reviews">
 
-  <view class="review-item" wx:for="{{ reviews }}" wx:key="id">
+  <view class="review-item" wx:for="{{ reviews }}" wx:key="id" bindtap="reviewItemTapped">
     <view class="author">
       <image class="author-avatar" src="/images/{{ item.author.avatar }}"/>
       <text class="author-name">{{ item.author.name }}</text>

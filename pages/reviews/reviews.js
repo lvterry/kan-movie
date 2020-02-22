@@ -79,5 +79,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  reviewItemTapped: () => {
+    wx.navigateTo({
+      url: '/pages/reviews/show/show?id=8',
+    })
   }
 })

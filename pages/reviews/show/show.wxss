@@ -1,0 +1,85 @@
+.container {
+  background: white;
+  border: 1px solid #E1E9EE;
+  border-radius: 8rpx;
+  margin: 160rpx 30rpx 30rpx;
+  padding: 180rpx 60rpx 60rpx 60rpx;
+  color: #333;
+  position: relative;
+}
+
+.poster {
+  width: 200rpx;
+  height: 294rpx;
+  border-radius: 8rpx; 
+  position: absolute;
+  top: -120rpx;
+  left: 245rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  line-height: 50rpx;
+  font-weight: bold;
+  text-align: center;
+  margin: 24rpx 0;
+}
+
+.toolbar {
+  margin-top: 120rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  background: white;
+  border: 1px solid #E1E9EE;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: #1296db;
+  display: flex;
+  align-items: center;
+  padding: 24rpx 48rpx;
+}
+
+.icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}
+
+.content {
+  font-size: 32rpx;
+  line-height: 45rpx;
+  margin-top: 24rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-quote {
+  width: 40rpx;
+  height: 40rpx;
+  flex-shrink: 0;
+  margin-right: 35rpx;
+  margin-left: 30rpx;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+}
+
+.author-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 24rpx;
+  border-radius: 40rpx;
+}
+
+.author-name {
+  font-size: 32rpx;
+  line-height: 42rpx;
+  color: #666;
+}

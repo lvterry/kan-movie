@@ -5,7 +5,9 @@
     "pages/hot/hot",
     "pages/detail/detail",
     "pages/me/me",
-    "pages/reviews/reviews"
+    "pages/reviews/reviews",
+    "pages/reviews/show/show",
+    "pages/reviews/new/new"
   ],
   "window": {
     "backgroundTextStyle": "light",

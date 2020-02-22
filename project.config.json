@@ -73,6 +73,13 @@
 					"id": -1,
 					"name": "reviews",
 					"pathName": "pages/reviews/reviews",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "review-show",
+					"pathName": "pages/reviews/show/show",
 					"scene": null
 				}
 			]

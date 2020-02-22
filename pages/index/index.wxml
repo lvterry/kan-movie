@@ -1,11 +1,11 @@
 <view class="container">
 
-  <view class="movie">
+  <view class="movie" bindtap="showMovie">
     <image class="movie-poster" src="{{ movie.poster }}"></image>
     <text class="movie-title">{{ movie.title }}</text>
   </view>
 
-  <view class="review">
+  <view class="review" bindtap="showReview">
     <image class="avatar" src="{{ review.author.avatar }}"/>
     <text>{{ review.author.name }}</text>
     <text>给你推荐了一部电影</text>

@@ -19,5 +19,18 @@ Page({
   onLoad: function () {
     console.log('started')
   },
+
+  showMovie: () => {
+    wx.navigateTo({
+      url: '/pages/detail/detail?id=1',
+    })
+  },
+
+  showReview: () => {
+    wx.navigateTo({
+      url: '/pages/reviews/show/show?id=1',
+    })
+  },
+
   
 })

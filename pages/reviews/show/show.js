@@ -20,14 +20,18 @@ Page({
         avatar: 'jia.jpg',
         name: '加书亚在路上'
       }
-    }
+    },
+    preview: 0
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    console.log(parseInt(options.preview))
+    this.setData({
+      preview: parseInt(options.preview)
+    })
   },
 
   /**

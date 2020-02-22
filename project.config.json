@@ -80,6 +80,13 @@
 					"id": -1,
 					"name": "review-show",
 					"pathName": "pages/reviews/show/show",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "review-new",
+					"pathName": "pages/reviews/new/new",
 					"scene": null
 				}
 			]

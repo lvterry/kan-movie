@@ -17,8 +17,19 @@
     </view>
   </view>
 
-  <view class="toolbar">
-    <view class="button view-reviews" bindtap="viewReviewsTapped">
+  <view wx:if="{{ preview }}" class="toolbar">
+    <view class="button">
+      <image class="icon" src="/images/rollback.png"/>
+      <text>重新编辑</text>
+    </view>
+    <view class="button">
+      <image class="icon" src="/images/send.png"/>
+      <text>发布影评</text>
+    </view>
+  </view>
+
+  <view wx:else="{{ preview }}" class="toolbar">
+    <view class="button view-reviews">
       <image class="icon" src="/images/star.png"/>
       <text>收藏影评</text>
     </view>
@@ -27,4 +38,5 @@
       <text>写影评</text>
     </view>
   </view>
+
 </view>

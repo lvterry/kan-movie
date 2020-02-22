@@ -3,3 +3,9 @@ page {
   background: #F3F6F8;
   height: 100%
 }
+
+.icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}

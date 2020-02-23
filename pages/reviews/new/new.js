@@ -87,7 +87,7 @@ Page({
     if (!content) { return }
 
     wx.navigateTo({
-      url: '/pages/reviews/show/show?preview=true&content=' + content
+      url: '/pages/reviews/show/show?preview=true&type=text&content=' + content
     })
   }
 })

@@ -36,7 +36,7 @@ Page({
 
     this.setData({
       review: {
-        type: 'text',
+        type: options.type,
         content: options.content,
         author: {
           avatar: userInfo.avatarUrl,

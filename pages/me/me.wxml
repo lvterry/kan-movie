@@ -5,7 +5,7 @@
     <button class="login-button" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
   </view>
 
-  <block wx:else>
+  <block wx:elif="{{ movies.length > 0 }}">
     <view class="page-title">我收藏的影评</view>
 
     <view class="movie" wx:for="{{ movies }}" wx:key="id" data-id="{{ item.id }}">
@@ -20,6 +20,8 @@
       </view>
     </view>
   </block>
+
+  <view class="no-favorite-hint" wx:else>你还没有收藏影评</view>
 </view>
 
 <navigator class="back-to-home" url="/pages/index/index" open-type="navigateBack">

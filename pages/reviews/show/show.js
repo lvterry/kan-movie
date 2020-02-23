@@ -138,5 +138,27 @@ Page({
         title: '获取数据失败'
       })
     })
+  },
+
+  addFavorite() {
+    wx.showLoading({
+      title: '正在收藏'
+    })
+    db.addFavorite({
+      review: this.data.review,
+      movie: this.data.movie
+    }).then(res => {
+      wx.hideLoading()
+      wx.showToast({
+        title: '收藏成功'
+      })
+    }).catch(err => {
+      console.log(err)
+      wx.hideLoading()
+      wx.showToast({
+        icon: 'none',
+        title: '收藏失败'
+      })
+    })
   }
 })

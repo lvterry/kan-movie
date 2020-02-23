@@ -29,7 +29,7 @@
   </view>
 
   <view wx:else="{{ preview }}" class="toolbar">
-    <view class="button view-reviews">
+    <view class="button" bindtap="addFavorite">
       <image class="icon" src="/images/star.png"/>
       <text>收藏影评</text>
     </view>

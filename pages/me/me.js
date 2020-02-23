@@ -1,4 +1,5 @@
 const util = require('../../utils/util')
+const db = require('../../utils/db')
 const app = getApp()
 
 Page({
@@ -9,7 +10,7 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    movies: []
+    favorites: []
   },
 
   onLoad: function (options) {
@@ -25,11 +26,14 @@ Page({
                 userInfo: res.userInfo,
                 hasUserInfo: true
               })
+              that.getFavorites()
             }
           })
         }
       }
     })
+
+    
   },
 
   getUserInfo(event) {
@@ -38,5 +42,28 @@ Page({
       userInfo: event.detail.userInfo,
       hasUserInfo: true
     })
+    this.getFavorites()
   },
+
+  getFavorites() {
+    wx.showLoading({
+      title: '正在加载'
+    })
+    db.getFavorites().then(res => {
+      wx.hideLoading()
+      console.log(res)
+      let favorites = res.result
+      favorites.forEach(item => {
+        item.review.content = item.review.content.substr(0,24) + '...'
+      })
+      this.setData({ favorites })
+    }).catch(err => {
+      console.log(err)
+      wx.hideLoading()
+      wx.showToast({
+        icon: 'none',
+        title: '加载失败'
+      })
+    })
+  }
 })

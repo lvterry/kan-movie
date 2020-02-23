@@ -27,6 +27,7 @@ Page({
     })
     db.getRandomReview().then(res => {
       wx.hideLoading()
+      
       this.setData({
         review: res.result
       })

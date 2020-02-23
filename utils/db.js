@@ -1,8 +1,8 @@
-//const util = require('./util')
-
 const db = wx.cloud.database({
   env: 'mini-store-op3rr'
 })
+
+const app = getApp()
 
 module.exports = {
   getMovies() {
@@ -38,6 +38,19 @@ module.exports = {
   getRandomReview() {
     return wx.cloud.callFunction({
       name: 'getRandomReview'
+    })
+  },
+
+  addFavorite(data) {
+    return wx.cloud.callFunction({
+      name: 'addFavorite',
+      data,
+    })
+  },
+
+  getFavorites() {
+    return wx.cloud.callFunction({
+      name: 'getFavorites'
     })
   }
 }

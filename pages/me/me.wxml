@@ -5,17 +5,17 @@
     <button class="login-button" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
   </view>
 
-  <block wx:elif="{{ movies.length > 0 }}">
+  <block wx:elif="{{ favorites.length > 0 }}">
     <view class="page-title">我收藏的影评</view>
 
-    <view class="movie" wx:for="{{ movies }}" wx:key="id" data-id="{{ item.id }}">
-      <image class="poster" src="/images/{{ item.poster }}"/>
+    <view class="movie" wx:for="{{ favorites }}" wx:key="id" data-id="{{ item.id }}">
+      <image class="poster" src="{{ item.moviePoster }}"/>
       <view class="movie-info">
-        <view class="title">{{ item.title }}</view>
+        <view class="title">{{ item.movieName }}</view>
         <view class="review">{{ item.review.content }}</view>
         <view class="author">
-          <image class="author-avatar" src="/images/{{ item.review.author.avatar }}"/>
-          <text class="author-name">{{ item.review.author.name }}</text>
+          <image class="author-avatar" src="{{ item.review.avatar }}"/>
+          <text class="author-name">{{ item.review.username }}</text>
         </view>
       </view>
     </view>

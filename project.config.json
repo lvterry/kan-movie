@@ -78,10 +78,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "review-show",
 					"pathName": "pages/reviews/show/show",
-					"query": "",
+					"query": "id=dca7cdc0-8cfc-4013-a675-df00363bebe9",
 					"scene": null
 				},
 				{

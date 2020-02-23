@@ -23,6 +23,6 @@ module.exports = {
   getReviews(movieId) {
     return db.collection('review').where({
       movieId: movieId
-    }).get()
+    }).orderBy('createTime', 'desc').get()
   }
 }

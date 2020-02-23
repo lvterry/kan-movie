@@ -9,15 +9,15 @@ Page({
     this.getRandomReview()
   },
 
-  showMovie: () => {
+  showMovie() {
     wx.navigateTo({
-      url: '/pages/detail/detail?id=1',
+      url: '/pages/detail/detail?id=' + this.data.review.movie._id,
     })
   },
 
   showReview() {
     wx.navigateTo({
-      url: '/pages/reviews/show/show?id=1',
+      url: '/pages/reviews/show/show?id=' + this.data.review._id,
     })
   },
 

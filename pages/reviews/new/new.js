@@ -5,13 +5,7 @@ Page({
    * Page initial data
    */
   data: {
-    movie: {
-      id: 3,
-      title: '追随',
-      genre: '悬疑 / 惊悚 / 犯罪',
-      poster: 'poster3.jpg',
-      desc: '比尔（杰里米•希尔伯德 Jeremy Theobald 饰）是个游手好闲的作家，借跟踪陌生人打发时间。这让他体验到形形色色的人生，很神秘，也很刺激。不过，有一次，比尔盯上了一个西服革履的家伙克布（艾利克斯•浩尔 Alex Haw 饰）。'
-    },
+    movie: {},
     audio: false
   },
 
@@ -22,6 +16,13 @@ Page({
     if (options.audio) {
       this.setData({ audio: true })
     }
+    this.setData({
+      movie: {
+        id: options.id,
+        title: options.title,
+        poster: options.poster
+      }
+    })
   },
 
   /**

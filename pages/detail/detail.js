@@ -1,4 +1,5 @@
 const db = require('../../utils/db')
+const app = getApp()
 
 Page({
 
@@ -24,13 +25,22 @@ Page({
     })
   },
 
-  addReviewTapped: () => {
+  addReviewTapped (){
+    let movie = this.data.movie
+
+    if (!app.globalData.userInfo) {
+      wx.navigateTo({
+        url: '/pages/me/me',
+      })
+      return
+    }
+    
     wx.showActionSheet({
       itemList: ['文字', '音频'],
       success(res) {
         if (res.tapIndex === 0) {
           wx.navigateTo({
-            url: '/pages/reviews/new/new',
+            url: '/pages/reviews/new/new?id=' + movie._id + '&title=' + movie.title + '&poster=' + movie.poster
           })
         }
       },

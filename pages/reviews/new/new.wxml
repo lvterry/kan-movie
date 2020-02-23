@@ -2,7 +2,7 @@
 
   <view class="container">
 
-    <image src="/images/{{ movie.poster }}" class="poster" />
+    <image src="{{ movie.poster }}" class="poster" />
     <view class="title">{{ movie.title }}</view>
     
     <view wx:if="{{ audio }}" class="button-container">

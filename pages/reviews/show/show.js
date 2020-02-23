@@ -1,3 +1,4 @@
+const db = require('../../../utils/db')
 const app = getApp()
 
 Page({
@@ -22,6 +23,10 @@ Page({
       wx.showToast({
         icon: 'none',
         title: '请先登录',
+      })
+    } else {
+      this.setData({
+        userInfo
       })
     }
 
@@ -123,5 +128,43 @@ Page({
 
   editButtonTapped: () => {
     wx.navigateBack()
+  },
+
+  addReview(event) {
+    wx.showLoading({
+      title: '正在提交...'
+    })
+
+    db.addReview({
+      username: this.data.userInfo.nickName,
+      avatar: this.data.userInfo.avatarUrl,
+      content: this.data.review.content,
+      type: this.data.review.type,
+      movieId: this.data.movie._id
+    }).then(res => {
+      wx.hideLoading()
+
+      const data = res.result
+
+      if (data) {
+        wx.showToast({
+          title: '提交成功'
+        })
+
+        setTimeout(() => {
+          wx.navigateTo({
+            url: '/pages/reviews/reviews',
+          })()
+        }, 1500)
+      }
+    }).catch(err => {
+      console.error(err)
+      wx.hideLoading()
+
+      wx.showToast({
+        icon: 'none',
+        title: '提交失败'
+      })
+    })
   }
 })

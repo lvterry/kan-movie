@@ -26,7 +26,7 @@ Page({
 
   getMovies() {
     wx.showLoading({
-      title: 'Loading...',
+      title: '加载中',
     })
 
     db.getMovies().then(result => {

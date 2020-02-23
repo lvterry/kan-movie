@@ -22,7 +22,7 @@
       <image class="icon" src="/images/rollback.png"/>
       <text>重新编辑</text>
     </view>
-    <view class="button">
+    <view class="button" bindtap="addReview">
       <image class="icon" src="/images/send.png"/>
       <text>发布影评</text>
     </view>

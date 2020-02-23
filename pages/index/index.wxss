@@ -10,8 +10,8 @@
 }
 
 .movie-poster {
-  width: 500rpx;
-  height: 740rpx;
+  width: 400rpx;
+  height: 592rpx;
   display: block;
   margin: 40rpx auto;
 }
@@ -20,6 +20,7 @@
   color: #333333;
   font-size: 48rpx;
   line-height: 68rpx;
+  margin-bottom: 40rpx;
 }
 
 .review {

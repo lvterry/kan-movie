@@ -121,7 +121,7 @@ Page({
 
   getReview(id) {
     wx.showLoading({
-      title: '加载中'
+      title: '数据加载中'
     })
 
     db.getReview(id).then(res => {

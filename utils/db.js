@@ -33,5 +33,11 @@ module.exports = {
         id
       },
     })
+  },
+
+  getRandomReview() {
+    return wx.cloud.callFunction({
+      name: 'getRandomReview'
+    })
   }
 }

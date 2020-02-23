@@ -55,7 +55,19 @@ Page({
     } 
   },
 
-  addReviewTapped: () => {
+  addReviewTapped() {
+    wx.setStorage({
+      key: 'movie',
+      data: this.data.movie
+    })
+
+    if (!app.globalData.userInfo) {
+      wx.navigateTo({
+        url: '/pages/me/me',
+      })
+      return
+    }
+
     wx.showActionSheet({
       itemList: ['文字', '音频'],
       success(res) {

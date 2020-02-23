@@ -12,7 +12,8 @@
       </view>
     </view>
 
-    <textarea wx:else="{{ audio }}" placeholder="输入你的影评" maxlength="150"></textarea>
+    <textarea wx:else="{{ audio }}" placeholder="输入你的影评" maxlength="150"
+      bindinput="onInput"></textarea>
 
   </view>
 

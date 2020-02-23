@@ -1,26 +1,13 @@
-// pages/reviews/show/show.js
+const app = getApp()
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    movie: {
-      id: 3,
-      title: '追随',
-      genre: '悬疑 / 惊悚 / 犯罪',
-      poster: 'cloud://mini-store-op3rr.6d69-mini-store-op3rr-1301027520/movies/poster3.jpg',
-      desc: '比尔（杰里米•希尔伯德 Jeremy Theobald 饰）是个游手好闲的作家，借跟踪陌生人打发时间。这让他体验到形形色色的人生，很神秘，也很刺激。不过，有一次，比尔盯上了一个西服革履的家伙克布（艾利克斯•浩尔 Alex Haw 饰）。'
-    },
-    review: {
-      id: 2,
-      type: 'audio',
-      content: '随着叙述的深入，一个年轻人孤单的生活展现在观众面前。他没有工作，一个人住在污秽的单身公寓里，读柏拉图，想成为一名作家却连承认这一梦想的勇气都没有，对梦露这样的金发美女有着性幻想（他床头张贴着梦露的海报），没有朋友，是“一条缺乏社交的可怜虫”。孤独超过了一定限度就容易发生心理变态行为，我们的主人公开始尾随陌生人，偷窥他们的生活和工作，陶醉于一些意想不到的发现之中。',
-      author: {
-        avatar: 'jia.jpg',
-        name: '加书亚在路上'
-      }
-    },
+    movie: {},
+    review: {},
     preview: false
   },
 
@@ -28,6 +15,36 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    let that = this
+    let userInfo = app.globalData.userInfo
+
+    if (!userInfo) {
+      wx.showToast({
+        icon: 'none',
+        title: '请先登录',
+      })
+    }
+
+    wx.getStorage({
+      key: 'movie',
+      success: function(res) {
+        that.setData({
+          movie: res.data
+        })
+      },
+    })
+
+    this.setData({
+      review: {
+        type: 'text',
+        content: options.content,
+        author: {
+          avatar: userInfo.avatarUrl,
+          name: userInfo.nickName
+        }
+      }
+    })
+
     if (options.preview) {
       this.setData({
         preview: true

@@ -1,10 +1,10 @@
 <view class="container">
-  <image src="/images/{{ movie.poster }}" class="poster" />
+  <image src="{{ movie.poster }}" class="poster" />
   <view class="title">{{ movie.title }}</view>
   
   <view class="review">
     <view class="author">
-      <image class="author-avatar" src="/images/{{ review.author.avatar }}"/>
+      <image class="author-avatar" src="{{ review.author.avatar }}"/>
       <text class="author-name">{{ review.author.name }}</text>
     </view>
     <view class="content">

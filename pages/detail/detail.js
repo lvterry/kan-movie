@@ -26,7 +26,10 @@ Page({
   },
 
   addReviewTapped (){
-    let movie = this.data.movie
+    wx.setStorage({
+      key: 'movie',
+      data: this.data.movie
+    })
 
     if (!app.globalData.userInfo) {
       wx.navigateTo({
@@ -34,13 +37,14 @@ Page({
       })
       return
     }
-    
+
     wx.showActionSheet({
       itemList: ['文字', '音频'],
       success(res) {
         if (res.tapIndex === 0) {
           wx.navigateTo({
-            url: '/pages/reviews/new/new?id=' + movie._id + '&title=' + movie.title + '&poster=' + movie.poster
+            //url: '/pages/reviews/new/new?id=' + movie._id + '&title=' + movie.title + '&poster=' + movie.poster
+            url: '/pages/reviews/new/new'
           })
         }
       },

@@ -16,12 +16,14 @@ Page({
     if (options.audio) {
       this.setData({ audio: true })
     }
-    this.setData({
-      movie: {
-        id: options.id,
-        title: options.title,
-        poster: options.poster
-      }
+    let that = this
+    let movie = wx.getStorage({
+      key: 'movie',
+      success: function(res) {
+        that.setData({
+          movie: res.data
+        })
+      },
     })
   },
 
@@ -74,9 +76,18 @@ Page({
 
   },
 
-  submitButtonTapped: () => {
+  onInput(event) {
+    this.setData({
+      reviewContent: event.detail.value.trim()
+    })
+  },
+
+  submitButtonTapped() {
+    let content = this.data.reviewContent
+    if (!content) { return }
+
     wx.navigateTo({
-      url: '/pages/reviews/show/show?preview=true',
+      url: '/pages/reviews/show/show?preview=true&content=' + content
     })
   }
 })

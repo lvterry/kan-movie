@@ -19,9 +19,9 @@ Page({
     }
   },
 
-  viewReviewsTapped: () => {
+  viewReviews () {
     wx.navigateTo({
-      url: '/pages/reviews/reviews?movieId=1',
+      url: '/pages/reviews/reviews?movieId=' + this.data.movie._id,
     })
   },
 

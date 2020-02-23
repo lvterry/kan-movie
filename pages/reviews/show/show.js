@@ -131,6 +131,8 @@ Page({
   },
 
   addReview(event) {
+    let movieId = this.data.movie._id
+
     wx.showLoading({
       title: '正在提交...'
     })
@@ -153,8 +155,8 @@ Page({
 
         setTimeout(() => {
           wx.navigateTo({
-            url: '/pages/reviews/reviews',
-          })()
+            url: '/pages/reviews/reviews?movieId=' + movieId,
+          })
         }, 1500)
       }
     }).catch(err => {

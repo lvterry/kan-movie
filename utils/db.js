@@ -19,4 +19,10 @@ module.exports = {
       data,
     })
   },
+
+  getReviews(movieId) {
+    return db.collection('review').where({
+      movieId: movieId
+    }).get()
+  }
 }

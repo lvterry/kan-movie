@@ -13,7 +13,7 @@ exports.main = async (event, context) => {
   await db.collection('review').add({
     data: {
       user,
-      username: event.name,
+      username: event.username,
       avatar: event.avatar,
       content: event.content,
       type: event.type,

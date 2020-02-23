@@ -16,94 +16,43 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    let that = this
-    let userInfo = app.globalData.userInfo
+    if (options.preview) {
+      // preview the review
+      let that = this
+      let userInfo = app.globalData.userInfo
 
-    if (!userInfo) {
-      wx.showToast({
-        icon: 'none',
-        title: '请先登录',
+      if (!userInfo) {
+        wx.showToast({
+          icon: 'none',
+          title: '请先登录',
+        })
+      }
+
+      wx.getStorage({
+        key: 'movie',
+        success: function (res) {
+          that.setData({
+            movie: res.data
+          })
+        },
+      })
+
+      this.setData({
+        userInfo,
+        preview: true,
+        review: {
+          type: options.type,
+          content: options.content,
+          author: {
+            avatar: userInfo.avatarUrl,
+            name: userInfo.nickName
+          }
+        }
       })
     } else {
-      this.setData({
-        userInfo
-      })
-    }
-
-    wx.getStorage({
-      key: 'movie',
-      success: function(res) {
-        that.setData({
-          movie: res.data
-        })
-      },
-    })
-
-    this.setData({
-      review: {
-        type: options.type,
-        content: options.content,
-        author: {
-          avatar: userInfo.avatarUrl,
-          name: userInfo.nickName
-        }
-      }
-    })
-
-    if (options.preview) {
-      this.setData({
-        preview: true
-      })
-    }
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+      //display a review detail
+      this.getReview(options.id)
+    } 
   },
 
   addReviewTapped: () => {
@@ -166,6 +115,27 @@ Page({
       wx.showToast({
         icon: 'none',
         title: '提交失败'
+      })
+    })
+  },
+
+  getReview(id) {
+    wx.showLoading({
+      title: '加载中'
+    })
+
+    db.getReview(id).then(res => {
+      wx.hideLoading()
+      this.setData({
+        review: res.result,
+        movie: res.result.movie
+      })
+    }).catch(err => {
+      console.log(err)
+      wx.hideLoading()
+      wx.showToast({
+        icon: 'none',
+        title: '获取数据失败'
       })
     })
   }

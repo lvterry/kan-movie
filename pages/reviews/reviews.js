@@ -27,9 +27,10 @@ Page({
     })
   },
 
-  reviewItemTapped() {
+  reviewItemTapped(event) {
+    let reviewId = event.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/reviews/show/show?id=8',
+      url: '/pages/reviews/show/show?id=' + reviewId,
     })
   }
 })

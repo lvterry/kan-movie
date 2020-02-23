@@ -1,6 +1,6 @@
 {
 	"description": "Project configuration file",
-  "cloudfunctionRoot": "cloudfunctions/",
+	"cloudfunctionRoot": "cloudfunctions/",
 	"packOptions": {
 		"ignore": []
 	},
@@ -71,10 +71,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "reviews",
 					"pathName": "pages/reviews/reviews",
-					"query": "",
+					"query": "movieId=510bb09b-2f59-4a4a-b11a-6472cb077643",
 					"scene": null
 				},
 				{
@@ -88,6 +88,7 @@
 					"id": -1,
 					"name": "review-new",
 					"pathName": "pages/reviews/new/new",
+					"query": "",
 					"scene": null
 				}
 			]

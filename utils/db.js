@@ -24,5 +24,14 @@ module.exports = {
     return db.collection('review').where({
       movieId: movieId
     }).orderBy('createTime', 'desc').get()
+  },
+
+  getReview(id) {
+    return wx.cloud.callFunction({
+      name: 'getReview',
+      data: {
+        id
+      },
+    })
   }
 }

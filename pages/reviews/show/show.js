@@ -9,25 +9,32 @@ Page({
   data: {
     movie: {},
     review: {},
-    preview: false
+    preview: false,
+    hasUserInfo: false
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    let userInfo = app.globalData.userInfo
+
+    if (!userInfo) {
+      wx.showToast({
+        icon: 'none',
+        title: '请先登录',
+      })
+    }
+
+    this.setData({
+      userInfo,
+      hasUserInfo: true
+    })
+
     if (options.preview) {
       // preview the review
       let that = this
-      let userInfo = app.globalData.userInfo
-
-      if (!userInfo) {
-        wx.showToast({
-          icon: 'none',
-          title: '请先登录',
-        })
-      }
-
+      
       wx.getStorage({
         key: 'movie',
         success: function (res) {
@@ -38,7 +45,6 @@ Page({
       })
 
       this.setData({
-        userInfo,
         preview: true,
         review: {
           type: options.type,
@@ -154,6 +160,12 @@ Page({
   },
 
   addFavorite() {
+    if (!this.data.hasUserInfo) {
+      wx.navigateTo({
+        url: '/pages/me/me',
+      })
+      return
+    }
     wx.showLoading({
       title: '正在收藏'
     })
@@ -163,11 +175,12 @@ Page({
     }).then(res => {
       wx.hideLoading()
       wx.showToast({
-        title: '收藏成功',
-        duration: 500,
-        success: () => {
-          this.getReview(this.data.review._id)
-        }
+        title: '收藏成功'
+      })
+      let review = this.data.review
+      review.isFavorited = true
+      this.setData({
+        review
       })
     }).catch(err => {
       console.log(err)

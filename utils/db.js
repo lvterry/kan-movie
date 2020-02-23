@@ -42,10 +42,12 @@ module.exports = {
   },
 
   addFavorite(data) {
-    return wx.cloud.callFunction({
-      name: 'addFavorite',
-      data,
-    })
+    if (app.globalData.userInfo) {
+      return wx.cloud.callFunction({
+        name: 'addFavorite',
+        data,
+      })
+    }
   },
 
   getFavorites() {

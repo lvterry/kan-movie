@@ -10,15 +10,24 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   let user = wxContext.OPENID
 
-  await db.collection('favorites').add({
-    data: {
-      user,
-      review: event.review,
-      moviePoster: event.movie.poster,
-      movieName: event.movie.title,
-      createdAt: +new Date()
-    }
-  })
+  const favoriteRes = await db.collection('favorites').where({
+    user,
+    review
+  }).count()
 
+  const isFavorited = parseInt(favoriteRes.total) > 0
+
+  if (!isFavorited) {
+    await db.collection('favorites').add({
+      data: {
+        user,
+        review: event.review,
+        moviePoster: event.movie.poster,
+        movieName: event.movie.title,
+        createdAt: +new Date()
+      }
+    })
+  }
+  
   return {}
 }

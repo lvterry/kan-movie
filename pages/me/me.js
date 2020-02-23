@@ -54,7 +54,9 @@ Page({
       console.log(res)
       let favorites = res.result
       favorites.forEach(item => {
-        item.review.content = item.review.content.substr(0,24) + '...'
+        if (item.review.content.length > 24) {
+          item.review.content = item.review.content.substr(0, 24) + '...'
+        }
       })
       this.setData({ favorites })
     }).catch(err => {
@@ -64,6 +66,13 @@ Page({
         icon: 'none',
         title: '加载失败'
       })
+    })
+  },
+
+  showReview(event) {
+    let reviewId = event.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/reviews/show/show?id=' + reviewId,
     })
   }
 })

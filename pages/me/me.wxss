@@ -69,3 +69,16 @@
   color: #1296db;
   font-size: 36rpx;
 }
+
+.login-hint {
+  font-size: 32rpx;
+  line-height: 45rpx;
+  margin: 60rpx 0 40rpx 0;
+  text-align: center;
+  color: #666;
+}
+
+.login-button {
+  color: white;
+  background: #1296db;
+}

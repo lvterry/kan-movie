@@ -1,10 +1,14 @@
-// pages/me/me.js
+const util = require('../../utils/util')
+const app = getApp()
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
+    userInfo: {},
+    hasUserInfo: false,
     movies: [
       {
         id: 2,
@@ -35,59 +39,31 @@ Page({
     ]
   },
 
-  /**
-   * Lifecycle function--Called when page load
-   */
+  getUserInfo (event) {
+    app.globalData.userInfo = event.detail.userInfo
+    this.setData({
+      userInfo: event.detail.userInfo,
+      hasUserInfo: true
+    })
+  },
+
   onLoad: function (options) {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+    let that = this
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              app.globalData.userInfo = res.userInfo
+              that.setData({
+                userInfo: res.userInfo,
+                hasUserInfo: true
+              })
+            }
+          })
+        }
+      }
+    })
   }
 })

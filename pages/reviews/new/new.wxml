@@ -6,7 +6,7 @@
     <view class="title">{{ movie.title }}</view>
     
     <view wx:if="{{ audio }}" class="button-container">
-      <view class="button add-audio">
+      <view class="button add-audio" bindtap="notImplemented">
         <image class="icon" src="/images/audio.png"/>
         <text>录音</text>
       </view>

@@ -43,8 +43,12 @@ Page({
       success(res) {
         if (res.tapIndex === 0) {
           wx.navigateTo({
-            //url: '/pages/reviews/new/new?id=' + movie._id + '&title=' + movie.title + '&poster=' + movie.poster
             url: '/pages/reviews/new/new'
+          })
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: '功能未实现',
           })
         }
       },

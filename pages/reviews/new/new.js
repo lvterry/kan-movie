@@ -27,55 +27,6 @@ Page({
     })
   },
 
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
-  },
-
   onInput(event) {
     this.setData({
       reviewContent: event.detail.value.trim()
@@ -88,6 +39,13 @@ Page({
 
     wx.navigateTo({
       url: '/pages/reviews/show/show?preview=true&type=text&content=' + content
+    })
+  },
+
+  notImplemented() {
+    wx.showToast({
+      icon: 'none',
+      title: '功能未实现',
     })
   }
 })

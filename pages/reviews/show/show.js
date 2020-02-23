@@ -64,8 +64,9 @@ Page({
             url: '/pages/reviews/new/new',
           })
         } else {
-          wx.navigateTo({
-            url: '/pages/reviews/new/new?audio=true',
+          wx.showToast({
+            icon: 'none',
+            title: '功能未实现',
           })
         }
       },
@@ -150,7 +151,11 @@ Page({
     }).then(res => {
       wx.hideLoading()
       wx.showToast({
-        title: '收藏成功'
+        title: '收藏成功',
+        duration: 500,
+        success: () => {
+          this.getReview(this.data.review._id)
+        }
       })
     }).catch(err => {
       console.log(err)
@@ -159,6 +164,13 @@ Page({
         icon: 'none',
         title: '收藏失败'
       })
+    })
+  },
+
+  notImplemented() {
+    wx.showToast({
+      icon: 'none',
+      title: '功能未实现',
     })
   }
 })

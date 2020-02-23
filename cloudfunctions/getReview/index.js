@@ -7,6 +7,9 @@ const db = cloud.database()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
+  const wxContext = cloud.getWXContext()
+  const user = wxContext.OPENID
+
   const reviewRes = await db.collection('review').doc(event.id).get()
   const review = reviewRes.data
 
@@ -19,6 +22,13 @@ exports.main = async (event, context) => {
     avatar: review.avatar,
     name: review.username
   }
+
+  const favoriteRes = await db.collection('favorites').where({
+    user,
+    review
+  }).count()
+
+  review.isFavorited = parseInt(favoriteRes.total) > 0
 
   return review
 }

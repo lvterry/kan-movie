@@ -38,8 +38,9 @@
       <text>收藏影评</text>
     </view>
     <view class="button add-review" bindtap="addReviewTapped">
-      <image class="icon" src="/images/edit.png"/>
-      <text>写影评</text>
+      <image wx:if="{{ !review.hasReview }}" class="icon" src="/images/edit.png"/>
+      <text wx:if="{{ review.hasReview }}">我的影评</text>
+      <text wx:else>写影评</text>
     </view>
   </view>
 

@@ -62,6 +62,17 @@ Page({
   },
 
   addReviewTapped() {
+    if (this.data.review.hasReview) {
+      let reviewId = this.data.review.previousReviewId
+      wx.navigateTo({
+        url: '/pages/reviews/show/show?id=' + reviewId,
+      })
+    } else {
+      this.askForReviewType()
+    }
+  },
+
+  askForReviewType() {
     wx.setStorage({
       key: 'movie',
       data: this.data.movie

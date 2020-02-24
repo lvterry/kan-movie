@@ -19,11 +19,15 @@ Page({
     this.getReviews()
   },
 
-  getReviews() {
+  getReviews(callback) {
     db.getReviews(this.data.movieId).then(res => {
       this.setData({
         reviews: res.data
       })
+      callback()
+    }).catch(err => {
+      console.log(err)
+      callback()
     })
   },
 
@@ -31,6 +35,12 @@ Page({
     let reviewId = event.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/reviews/show/show?id=' + reviewId,
+    })
+  },
+
+  onPullDownRefresh() {
+    this.getReviews(() => {
+      wx.stopPullDownRefresh()
     })
   }
 })

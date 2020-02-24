@@ -51,7 +51,6 @@ Page({
     })
     db.getFavorites().then(res => {
       wx.hideLoading()
-      console.log(res)
       let favorites = res.result
       favorites.forEach(item => {
         if (item.review.content.length > 24) {

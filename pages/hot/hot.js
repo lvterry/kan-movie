@@ -24,7 +24,7 @@ Page({
     })
   },
 
-  getMovies() {
+  getMovies(callback) {
     wx.showLoading({
       title: '加载中',
     })
@@ -37,9 +37,17 @@ Page({
           movies
         })
       }
+      callback()
     }).catch(err => {
       console.error(err)
       wx.hideLoading()
+      callback()
+    })
+  },
+
+  onPullDownRefresh() {
+    this.getMovies(() => {
+      wx.stopPullDownRefresh()
     })
   }
 })

@@ -46,12 +46,13 @@ Page({
     this.getFavorites()
   },
 
-  getFavorites() {
+  getFavorites(callback) {
     wx.showLoading({
       title: '正在加载'
     })
     db.getFavorites().then(res => {
       wx.hideLoading()
+      callback && callback()
       let favorites = res.result
       favorites.forEach(item => {
         if (item.review.content.length > 24) {
@@ -62,6 +63,7 @@ Page({
     }).catch(err => {
       console.log(err)
       wx.hideLoading()
+      callback && callback()
       wx.showToast({
         icon: 'none',
         title: '加载失败'
@@ -76,12 +78,13 @@ Page({
     })
   },
 
-  getMyReviews() {
+  getMyReviews(callback) {
     wx.showLoading({
       title: '正在加载'
     })
     db.getMyReviews().then(res => {
       wx.hideLoading()
+      callback && callback()
       let reviews = res.result
       console.log(reviews)
       reviews.forEach(item => {
@@ -96,9 +99,11 @@ Page({
         }
       })
       this.setData({ favorites: reviews })
+      
     }).catch(err => {
       console.log(err)
       wx.hideLoading()
+      callback && callback()
       wx.showToast({
         icon: 'none',
         title: '加载失败'
@@ -119,6 +124,18 @@ Page({
       } else {
         this.getMyReviews()
       }
+    }
+  },
+
+  onPullDownRefresh() {
+    if (this.data.currentTab === 0) {
+      this.getFavorites(() => {
+        wx.stopPullDownRefresh()
+      })
+    } else {
+      this.getMyReviews(() => {
+        wx.stopPullDownRefresh()
+      })
     }
   }
 

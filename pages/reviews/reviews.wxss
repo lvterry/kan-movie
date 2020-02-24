@@ -46,3 +46,11 @@
   height: 40rpx;
   margin-right: 12rpx;
 }
+
+.hint {
+  font-size: 32rpx;
+  line-height: 45rpx;
+  margin: 60rpx 0 40rpx 0;
+  text-align: center;
+  color: #666;
+}

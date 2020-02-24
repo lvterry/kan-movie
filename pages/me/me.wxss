@@ -1,9 +1,20 @@
-.page-title {
-  font-size: 32rpx;
-  line-height: 44rpx;
-  color: #EF7E37;
-  margin: 60rpx 0;
-  text-align: center;
+.tabs {
+  background: white;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 48rpx;
+}
+.tab {
+  padding: 30rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #666;
+}
+
+.tab.current {
+  color: #333;
+  font-weight: bold;
+  border-bottom: 1px solid #1296db;
 }
 
 .movie {

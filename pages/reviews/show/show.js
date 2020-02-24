@@ -121,7 +121,9 @@ Page({
       avatar: this.data.userInfo.avatarUrl,
       content: this.data.review.content,
       type: this.data.review.type,
-      movieId: this.data.movie._id
+      movieId: this.data.movie._id,
+      movieName: this.data.movie.title,
+      moviePoster: this.data.movie.poster
     }).then(res => {
       wx.hideLoading()
 

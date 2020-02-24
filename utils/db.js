@@ -59,5 +59,12 @@ module.exports = {
     return wx.cloud.callFunction({
       name: 'getFavorites'
     })
+  },
+
+  getMyReviews() {
+    return wx.cloud.callFunction({
+      name: 'getMyReviews'
+    })
   }
+
 }

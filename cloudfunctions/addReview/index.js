@@ -18,6 +18,8 @@ exports.main = async (event, context) => {
       content: event.content,
       type: event.type,
       movieId: event.movieId,
+      movieName: event.movieName,
+      moviePoster: event.moviePoster,
       createTime: +new Date()
     },
   })

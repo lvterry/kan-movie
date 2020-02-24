@@ -10,7 +10,8 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    favorites: []
+    favorites: [],
+    currentTab: 0
   },
 
   onLoad: function (options) {
@@ -73,5 +74,53 @@ Page({
     wx.navigateTo({
       url: '/pages/reviews/show/show?id=' + reviewId,
     })
+  },
+
+  getMyReviews() {
+    wx.showLoading({
+      title: '正在加载'
+    })
+    db.getMyReviews().then(res => {
+      wx.hideLoading()
+      let reviews = res.result
+      console.log(reviews)
+      reviews.forEach(item => {
+        if (item.content.length > 24) {
+          item.content = item.content.substr(0, 24) + '...'
+        }
+        item.review = {
+          _id: item._id,
+          avatar: item.avatar,
+          username: item.username,
+          content: item.content
+        }
+      })
+      this.setData({ favorites: reviews })
+    }).catch(err => {
+      console.log(err)
+      wx.hideLoading()
+      wx.showToast({
+        icon: 'none',
+        title: '加载失败'
+      })
+    })
+  },
+
+  changeTab(event) {
+    let id = parseInt(event.currentTarget.dataset.index)
+    if (id !== this.data.currentTab) {
+      this.setData({
+        currentTab: id,
+        favorites: []
+      })
+      // load data
+      if (id === 0) {
+        this.getFavorites()
+      } else {
+        this.getMyReviews()
+      }
+    }
   }
+
+
 })

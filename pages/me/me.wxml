@@ -5,23 +5,28 @@
     <button class="login-button" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
   </view>
 
-  <block wx:elif="{{ favorites.length > 0 }}">
-    <view class="page-title">我收藏的影评</view>
+  <block wx:else>
+    <view class="tabs">
+      <view class="tab {{ currentTab == 0 ? 'current' : '' }}" bindtap="changeTab" data-index="0">我收藏的影评</view>
+      <view class="tab {{ currentTab == 1 ? 'current' : '' }}" bindtap="changeTab" data-index="1">我发布的影评</view>
+    </view>
 
-    <view class="movie" wx:for="{{ favorites }}" wx:key="id" data-id="{{ item.review._id }}" bindtap="showReview">
-      <image class="poster" src="{{ item.moviePoster }}"/>
-      <view class="movie-info">
-        <view class="title">{{ item.movieName }}</view>
-        <view class="review">{{ item.review.content }}</view>
-        <view class="author">
-          <image class="author-avatar" src="{{ item.review.avatar }}"/>
-          <text class="author-name">{{ item.review.username }}</text>
+    <block wx:if="{{ favorites.length > 0 }}">
+      <view class="movie" wx:for="{{ favorites }}" wx:key="id" data-id="{{ item.review._id }}" bindtap="showReview">
+        <image class="poster" src="{{ item.moviePoster }}"/>
+        <view class="movie-info">
+          <view class="title">{{ item.movieName }}</view>
+          <view class="review">{{ item.review.content }}</view>
+          <view class="author">
+            <image class="author-avatar" src="{{ item.review.avatar }}"/>
+            <text class="author-name">{{ item.review.username }}</text>
+          </view>
         </view>
       </view>
-    </view>
+    </block>
+
   </block>
 
-  <view class="no-favorite-hint" wx:else>你还没有收藏影评</view>
 </view>
 
 <navigator class="back-to-home" url="/pages/index/index" open-type="navigateBack">

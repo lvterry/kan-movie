@@ -10,7 +10,12 @@ module.exports = {
   },
 
   getMovie(id) {
-    return db.collection('movies').doc(id).get()
+    return wx.cloud.callFunction({
+      name: 'getMovie',
+      data: {
+        id
+      },
+    })
   },
 
   addReview(data) {

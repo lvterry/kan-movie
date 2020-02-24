@@ -26,6 +26,17 @@ Page({
   },
 
   addReviewTapped (){
+    if (this.data.movie.hasReview) {
+      let reviewId = this.data.movie.reviewId
+      wx.navigateTo({
+        url: '/pages/reviews/show/show?id=' + reviewId,
+      })
+    } else {
+      this.askForReviewType()
+    }
+  },
+
+  askForReviewType() {
     wx.setStorage({
       key: 'movie',
       data: this.data.movie
@@ -63,9 +74,10 @@ Page({
       title: 'Loading...',
     })
 
-    db.getMovie(id).then(result => {
+    db.getMovie(id).then(res => {
       wx.hideLoading()
-      const movie = result.data
+      //console.log(result)
+      const movie = res.result
       if (movie) {
         if (movie.desc.length > 100) {
           movie.desc = movie.desc.substr(0, 100) + '...'

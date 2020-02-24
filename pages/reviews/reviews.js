@@ -24,10 +24,10 @@ Page({
       this.setData({
         reviews: res.data
       })
-      callback()
+      callback && callback()
     }).catch(err => {
       console.log(err)
-      callback()
+      callback && callback()
     })
   },
 

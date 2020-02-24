@@ -37,11 +37,11 @@ Page({
           movies
         })
       }
-      callback()
+      callback && callback()
     }).catch(err => {
       console.error(err)
       wx.hideLoading()
-      callback()
+      callback && callback()
     })
   },
 

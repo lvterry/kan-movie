@@ -12,7 +12,7 @@ exports.main = async (event, context) => {
 
   const favoriteRes = await db.collection('favorites').where({
     user,
-    review
+    review: event.review
   }).count()
 
   const isFavorited = parseInt(favoriteRes.total) > 0

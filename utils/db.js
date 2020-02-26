@@ -4,6 +4,8 @@ const db = wx.cloud.database({
 
 const app = getApp()
 
+const util = require('util.js')
+
 module.exports = {
   getMovies() {
     return db.collection('movies').get()
@@ -64,6 +66,13 @@ module.exports = {
   getMyReviews() {
     return wx.cloud.callFunction({
       name: 'getMyReviews'
+    })
+  },
+
+  uploadAudioFile(filePath){
+    return wx.cloud.uploadFile({
+      cloudPath: `review/${util.getId()}`,
+      filePath: filePath,
     })
   }
 

@@ -57,10 +57,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "pages/detail/detail",
 					"pathName": "pages/detail/detail",
-					"query": "",
+					"query": "id=8c06dab4-eb7e-49aa-af92-635588a7b3e8",
 					"scene": null
 				},
 				{

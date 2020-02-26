@@ -8,9 +8,9 @@
         <text class="author-name">{{ item.username }}</text>
       </view>
       <view wx:if="{{ item.type == 'text' }}" class="content">{{ item.content }}</view>
-      <view wx:elif="{{ item.type == 'audio' }}" class="content audio">
-        <image class="icon-play" src="/images/play-circle-fill.png"></image>
-        <text>15s</text>
+      <view wx:elif="{{ item.type == 'audio' }}" class="audio">
+        <image class="icon" src="/images/play-circle-fill.png"></image>
+        <text>{{ item.duration / 1000 }}s</text>
       </view>
     </view>
   </block>

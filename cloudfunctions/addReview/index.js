@@ -20,6 +20,7 @@ exports.main = async (event, context) => {
       movieId: event.movieId,
       movieName: event.movieName,
       moviePoster: event.moviePoster,
+      duration: event.duration,
       createTime: +new Date()
     },
   })

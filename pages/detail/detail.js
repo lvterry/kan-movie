@@ -57,9 +57,8 @@ Page({
             url: '/pages/reviews/new/new'
           })
         } else {
-          wx.showToast({
-            icon: 'none',
-            title: '功能未实现',
+          wx.navigateTo({
+            url: '/pages/reviews/new/new?audio=true'
           })
         }
       },

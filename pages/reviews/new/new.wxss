@@ -49,6 +49,8 @@ textarea {
 .button-container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-content: center;
 }
 
 .button {
@@ -63,9 +65,16 @@ textarea {
   align-items: center;
   justify-content: center;
   padding: 20rpx 36rpx;
+  align-self: center;
 }
 
 .add-audio {
-  width: 30%;
+  width: 40%;
+  margin-top: 40rpx;
+}
+
+.audio {
+  width: 50%;
+  align-self: center;
   margin-top: 40rpx;
 }

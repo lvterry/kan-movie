@@ -1,22 +1,39 @@
-<form>
+<view class="container">
 
-  <view class="container">
+  <image src="{{ movie.poster }}" class="poster" />
+  <view class="title">{{ movie.title }}</view>
 
-    <image src="{{ movie.poster }}" class="poster" />
-    <view class="title">{{ movie.title }}</view>
-    
-    <view wx:if="{{ audio }}" class="button-container">
-      <view class="button add-audio" bindtap="notImplemented">
-        <image class="icon" src="/images/audio.png"/>
-        <text>录音</text>
-      </view>
+  <view wx:if="{{ audio }}" class="button-container">
+    <view wx:if="{{ recording === 0 }}" class="button add-audio" bindtap="startRecording">
+      <image class="icon" src="/images/audio.png"/>
+      <text>录音</text>
     </view>
 
-    <textarea wx:else="{{ audio }}" placeholder="输入你的影评" maxlength="150"
-      bindinput="onInput"></textarea>
+    <block wx:elif="{{ recording === 1 }}">
+      <view class="button add-audio" bindtap="stopRecording">
+        <image class="icon" src="/images/audio.png"/>
+        <text>停止录音</text>
+      </view>
+      <view class="hint">正在录音……</view>
+    </block>
+    
+    <block wx:elif="{{ recording === 2 }}">
+      <view class="button add-audio" bindtap="startRecording">
+        <image class="icon" src="/images/audio.png"/>
+        <text>重新录音</text>
+      </view>
+
+      <view class="audio" bindtap="playAudio">
+        <image wx:if="{{ audioPlaying }}" class="icon" src="/images/pause.png"></image>
+        <image wx:else class="icon" src="/images/play-circle-fill.png"></image>
+        <text>{{ duration / 1000 }}s</text>
+      </view>
+    </block>
+  </view>
+
+  <textarea wx:else placeholder="输入你的影评" maxlength="150"
+    bindinput="onInput"></textarea>
 
   </view>
 
   <view class="button-submit" bindtap="submitButtonTapped">完成</view>
-
-</form>

@@ -33,24 +33,5 @@
 }
 
 .audio {
-  background: #C7D1D8;
-  padding: 12rpx 80rpx 12rpx 40rpx;
-  border-radius: 8rpx;
-  display: flex;
-  align-items: center;
-  width: 30%;
-}
-
-.icon-play {
-  width: 40rpx;
-  height: 40rpx;
-  margin-right: 12rpx;
-}
-
-.hint {
-  font-size: 32rpx;
-  line-height: 45rpx;
-  margin: 60rpx 0 40rpx 0;
-  text-align: center;
-  color: #666;
+  margin-top: 32rpx;
 }

@@ -10,8 +10,9 @@
     <view class="content">
       <image class="icon-quote" src="/images/quote.png"></image>
       <text wx:if="{{ review.type == 'text' }}">{{ review.content }}</text>
-      <view wx:elif="{{ review.type == 'audio' }}" class="audio">
-        <image class="icon-play" src="/images/play-circle-fill.png"></image>
+      <view wx:elif="{{ review.type == 'audio' }}" class="audio" bindtap="playAudio">
+        <image wx:if="{{ audioPlaying }}" class="icon" src="/images/pause.png"></image>
+        <image wx:else class="icon" src="/images/play-circle-fill.png"></image>
         <text>{{ review.duration /1000 }}s</text>
       </view>
     </view>

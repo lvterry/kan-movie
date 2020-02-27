@@ -69,8 +69,9 @@ Page({
         db.addReview({
           username: this.data.userInfo.nickName,
           avatar: this.data.userInfo.avatarUrl,
-          content: filePath,
+          content: '',
           type: 'audio',
+          filePath,
           duration: this.data.duration,
           movieId: this.data.movie._id,
           movieName: this.data.movie.title,
@@ -169,8 +170,13 @@ Page({
   },
 
   playAudio() {
-    const innerAudioContext = wx.createInnerAudioContext()
-    this.setupAudioContext(innerAudioContext)
+    let innerAudioContext = this.data.innerAudioContext
+    if (!innerAudioContext) {
+      innerAudioContext = wx.createInnerAudioContext()
+      this.setupAudioContext(innerAudioContext)
+      this.setData({ innerAudioContext })
+    }
+    
     innerAudioContext.src = this.data.tempFilePath
 
     if (this.data.audioPlaying) {
@@ -192,6 +198,12 @@ Page({
     })
     context.onStop(() => {
       console.log('停止播放')
+      that.setData({
+        audioPlaying: false
+      })
+    })
+    context.onEnded(() => {
+      console.log('播放结束')
       that.setData({
         audioPlaying: false
       })

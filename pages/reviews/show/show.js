@@ -10,7 +10,8 @@ Page({
     movie: {},
     review: {},
     preview: false,
-    hasUserInfo: false
+    hasUserInfo: false,
+    audioPlaying: false
   },
 
   /**
@@ -210,5 +211,53 @@ Page({
       icon: 'none',
       title: '功能未实现',
     })
-  }
+  },
+
+  playAudio() {
+    let innerAudioContext = this.data.innerAudioContext
+    if (!innerAudioContext) {
+      innerAudioContext = wx.createInnerAudioContext()
+      this.setupAudioContext(innerAudioContext)
+      this.setData({ innerAudioContext })
+    }
+
+    innerAudioContext.src = this.data.review.filePath
+
+    if (this.data.audioPlaying) {
+      innerAudioContext.stop()
+    } else {
+      innerAudioContext.play()
+    }
+
+  },
+
+  setupAudioContext(context) {
+    const that = this
+
+    context.onPlay(() => {
+      console.log('开始播放')
+      that.setData({
+        audioPlaying: true
+      })
+    })
+    context.onStop(() => {
+      console.log('停止播放')
+      that.setData({
+        audioPlaying: false
+      })
+    })
+    context.onEnded(() => {
+      console.log('播放结束')
+      that.setData({
+        audioPlaying: false
+      })
+    })
+    context.onError((res) => {
+      console.log(res.errMsg)
+      console.log(res.errCode)
+      that.setData({
+        audioPlaying: false
+      })
+    })
+  },
 })

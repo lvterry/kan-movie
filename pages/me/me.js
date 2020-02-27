@@ -86,7 +86,6 @@ Page({
       wx.hideLoading()
       callback && callback()
       let reviews = res.result
-      console.log(reviews)
       reviews.forEach(item => {
         if (item.content.length > 24) {
           item.content = item.content.substr(0, 24) + '...'
@@ -95,7 +94,9 @@ Page({
           _id: item._id,
           avatar: item.avatar,
           username: item.username,
-          content: item.content
+          content: item.content,
+          type: item.type,
+          duration: item.duration
         }
       })
       this.setData({ favorites: reviews })

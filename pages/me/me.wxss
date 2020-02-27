@@ -1,8 +1,15 @@
+.container {
+  padding: 120rpx 0 200rpx 0;
+}
+
 .tabs {
   background: white;
   display: flex;
   justify-content: center;
-  margin-bottom: 48rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .tab {
   padding: 30rpx;

@@ -16,7 +16,11 @@
         <image class="poster" src="{{ item.moviePoster }}"/>
         <view class="movie-info">
           <view class="title">{{ item.movieName }}</view>
-          <view class="review">{{ item.review.content }}</view>
+          <view wx:if="{{ item.review.type === 'text' }}" class="review">{{ item.review.content }}</view>
+          <view wx:else class="audio">
+            <image class="icon" src="/images/play-circle-fill.png"></image>
+            <text>{{ item.review.duration / 1000 }}s</text>
+          </view>
           <view class="author">
             <image class="author-avatar" src="{{ item.review.avatar }}"/>
             <text class="author-name">{{ item.review.username }}</text>

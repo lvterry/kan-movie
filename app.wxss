@@ -33,4 +33,5 @@ page {
   width: 40rpx;
   height: 40rpx;
   margin-right: 12rpx;
+  flex-shrink: 0;
 }
